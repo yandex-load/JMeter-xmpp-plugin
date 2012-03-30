@@ -1,0 +1,16 @@
+XMPPClientImpl is a plugin for JMeter load testing tool. It allows you to test XMPP/Jabber based services.
+This plugin is based on a standard TCP sampler.
+
+How it works:
+1) The starting tag is saved before sending data. If there was a query identity it is also saved.
+2) When data are received, they are checked for presence of meta-data saved on the previous step.
+
+Usage of XMPPClientImpl.jar:
+1) Save XMPPClientImpl.jar to /FullPathToJMeterDirectory/lib/ext/
+2) Enter ru.yandex.jmeter.XMPPClientImpl to TCPClient classname field of TCP sampler
+3) Set up TCP sampler according to http://jmeter.apache.org/usermanual/component_reference.html#TCP_Sampler
+
+Starting test:
+If XMPPClientImpl.jar is located in the same folder as the executable scenario, start from console like:
+jmeter -n -t XMPP.jmx -Duser.classpath=./XMPPClientImpl.jar -l results.jtl
+

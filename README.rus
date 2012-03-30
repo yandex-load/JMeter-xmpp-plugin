@@ -1,0 +1,14 @@
+XMPPClientImpl – дополнение к инструменту тестирования производительности JMeter. Позволяет тестировать протокол XMPP/Jabber.
+Данное дополнение реализовано на основе стандартного TCP sampler. 
+Принцип работы: 
+1) При отправке данных с запросом запоминается и сохраняется стартовый тэг и, если имеется, уникальный идентификатор запроса id. 
+2) При получении данных происходит проверка на наличие мета-данных, сохраненных на этапе отправки запроса.
+
+Использование XMPPClientImpl.jar
+1) Сохраняем XMPPClientImpl.jar в /FullPathToJMeterDirectory/lib/ext/
+2) В TCP sampler в поле TCPClient classname прописываем класс ru.yandex.jmeter.XMPPClientImpl
+3) Настраиваем TCP sampler в соответствии с документацией http://jmeter.apache.org/usermanual/component_reference.html#TCP_Sampler
+
+Если положить XMPPClientImpl.jar в директорию с запускаемым сценарием, запуск из консоли выглядит так:
+jmeter -n -t XMPP.jmx -Duser.classpath=./XMPPClientImpl.jar -l results.jtl
+
